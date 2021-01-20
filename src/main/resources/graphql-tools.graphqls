@@ -1,0 +1,10 @@
+type Item {
+    title: String!
+    description: String
+    publicationDate: String
+    image: String
+}
+
+type Query {
+    recentItems: [Item]!
+}
