@@ -7,6 +7,7 @@ public class NewsItem {
     private String title;
     private String description;
     private Date publicationDate;
+    private Date updatedDate;
     private String image;
 
     public String getTitle() {
@@ -39,5 +40,13 @@ public class NewsItem {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public Date getUpdatedDate() {
+        return updatedDate;
+    }
+
+    public void setUpdatedDate(Date updatedDate) {
+        this.updatedDate = updatedDate;
     }
 }

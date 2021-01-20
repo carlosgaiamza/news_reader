@@ -2,6 +2,7 @@ type Item {
     title: String!
     description: String
     publicationDate: String
+    updatedDate: String
     image: String
 }
 

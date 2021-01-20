@@ -1,0 +1,15 @@
+spring:
+  profiles:
+    default: default
+  application:
+    name: graphql-java-tools-app
+server:
+  port: 9001
+graphql:
+  servlet:
+    exception-handlers-enabled: true
+rssFeedsConsumer:
+  url: http://feeds.nos.nl/nosjournaal?format=xml
+  fixedRate:
+    in:
+      milliseconds: 30000

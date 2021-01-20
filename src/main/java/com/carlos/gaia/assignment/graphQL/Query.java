@@ -3,25 +3,28 @@ package com.carlos.gaia.assignment.graphQL;
 
 import com.carlos.gaia.assignment.graphQL.domain.NewsItem;
 import com.carlos.gaia.assignment.graphQL.mapper.DomainToGraphQLItemMapper;
-import com.carlos.gaia.assignment.service.repository.NewsItemRepository;
+import com.carlos.gaia.assignment.service.servcice.ItemService;
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
 
 @Component
 public class Query implements GraphQLQueryResolver {
 
+    private final static Logger LOGGER = LoggerFactory.getLogger(Query.class);
+
     @Autowired
-    private NewsItemRepository repository;
+    private ItemService service;
     @Autowired
     private DomainToGraphQLItemMapper mapper;
 
     public List<NewsItem> recentItems(){
-        return mapper.map((List<com.carlos.gaia.assignment.service.domain.NewsItem>) Optional.ofNullable(repository.findAll()).orElseGet(Collections::emptyList));
+        LOGGER.info("---> Query for items has been invoked.");
+        return mapper.map(service.findAll());
     }
 
 }
